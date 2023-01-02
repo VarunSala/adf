@@ -5,6 +5,15 @@
 		"factoryName": {
 			"value": "tech-brothers"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"SQL_DB_Customer_DS_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://mission100adlsstg.dfs.core.windows.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},
