@@ -54,13 +54,7 @@
 							"inputs": [
 								{
 									"referenceName": "Excel_DS",
-									"type": "DatasetReference",
-									"parameters": {
-										"DSheetName": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [

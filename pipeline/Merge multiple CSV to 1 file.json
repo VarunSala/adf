@@ -1,5 +1,5 @@
 {
-	"name": "basic_pipeline",
+	"name": "Merge multiple CSV to 1 file",
 	"properties": {
 		"activities": [
 			{
@@ -16,14 +16,22 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings",
+							"copyBehavior": "MergeFiles"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -32,7 +40,6 @@
 						}
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,
@@ -44,19 +51,18 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQL_DB_Customer_DS",
+						"referenceName": "CSV_Source",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "CSV_DS",
+						"referenceName": "CSV_destination",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
-		"annotations": [],
-		"lastPublishTime": "2022-12-19T08:50:20Z"
+		"annotations": []
 	}
 }
