@@ -11,6 +11,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"SQLDB_Parametrized_connectionString": {
+			"value": ""
+		},
 		"SQL_DB_Customer_DS_connectionString": {
 			"value": ""
 		},
